@@ -21,11 +21,11 @@ const facturarSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'Cliente',
     },
+    valor_total: reqNumber,
     fecha_emision: reqDate,
 }, {
     timestamps: true,
 })
-
 
 const facturaDetalleSchema = new Schema({
     ref_factura: facturarSchema,
