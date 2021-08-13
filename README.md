@@ -1,1 +1,3 @@
-# tiendita
+# Tiendita
+
+Proyecto considerando el diseño NoSQL.

@@ -16,6 +16,7 @@ const proveedorSchema = new Schema({
 })
 
 const productoSchema = new Schema({
+    codigo: reqString,
     nombre: reqString,
     valor: reqNumber,
     ref_proveedor: [proveedorSchema],
