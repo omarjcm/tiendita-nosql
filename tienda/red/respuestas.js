@@ -6,7 +6,7 @@ exports.exito = function(req, res, dato, estado) {
 }
 
 exports.error = function(req, res, dato, estado) {
-    console.error('[error] - ' + message)
+    console.error('[error] - ' + dato)
     res.status( estado || 500 ).send({
         error: dato,
         body: ''

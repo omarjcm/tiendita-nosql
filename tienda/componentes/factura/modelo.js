@@ -16,7 +16,12 @@ const reqNumber = {
     required: true,
 }
 
-const facturarSchema = new Schema({
+const facturaSchema = new Schema({
+    codigo: reqString,
+    ref_empleado: {
+        type: Schema.ObjectId,
+        ref: 'Empleado',
+    },
     ref_cliente: {
         type: Schema.ObjectId,
         ref: 'Cliente',
@@ -28,17 +33,16 @@ const facturarSchema = new Schema({
 })
 
 const facturaDetalleSchema = new Schema({
-    ref_factura: facturarSchema,
+    ref_factura: facturaSchema,
     ref_producto: {
         type: Schema.ObjectId,
         ref: 'Producto',
     },
     cantidad: reqNumber,
-    valor: reqNumber,
-    valor_detalle: reqNumber,
+    cantidad_x_valor: reqNumber,
 }, {
     timestamps: true,
 })
 
-const model = mongoose.model('Facturar', facturarSchema)
+const model = mongoose.model('Factura', facturaSchema)
 module.exports = model

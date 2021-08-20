@@ -14,12 +14,14 @@ function obtenerClientes( filtroCliente ) {
     return objeto
 }
 
-function actualizarCliente( cliente ) {
-    const objeto = model.findOne( {cedula: cliente.cedula} )
+async function actualizarCliente( cliente ) {
+    const objeto = await model.findOne( {cedula: cliente.cedula} )
+
     objeto.nombre = cliente.nombre
-    cedula.apellido = cliente.apellido
+    objeto.apellido = cliente.apellido
     objeto.ref_ciudad = cliente.ciudad
-    const resultado = objeto.save()
+    
+    const resultado = await objeto.save()
     return resultado
 }
 

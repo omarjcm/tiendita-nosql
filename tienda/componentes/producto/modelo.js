@@ -13,6 +13,7 @@ const reqNumber = {
 
 const proveedorSchema = new Schema({
     nombre: reqString,
+    domicilio: reqString,
 })
 
 const productoSchema = new Schema({

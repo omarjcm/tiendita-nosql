@@ -13,14 +13,10 @@ function obtenerClientes( filtroCliente ) {
     })
 }
 
-function actualizarCliente( nombre, abreviatura ) {
+function actualizarCliente( cliente ) {
     return new Promise((resolve, reject) => {
-        let carrera = {
-            nombre: nombre,
-            abreviatura: abreviatura
-        }
-        storage.actualizar( carrera )
-        resolve( carrera )
+        storage.actualizar( cliente )
+        resolve( cliente )
     })
 }
 
