@@ -25,7 +25,7 @@ ruta.post('/', function(req, res) {
         })
 })
 
-ruta.patch('/', function(req, res) {
+ruta.put('/', function(req, res) {
     controlador.actualizarFactura( req.body )
         .then((data) => {
             respuesta.exito(req, res, data, 200)
