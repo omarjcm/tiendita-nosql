@@ -26,7 +26,7 @@ ruta.post('/', function(req, res) {
 })
 
 ruta.patch('/', function(req, res) {
-    controlador.actualizarFactura(req.body.nombre, req.body.abreviatura)
+    controlador.actualizarFactura( req.body )
         .then((data) => {
             respuesta.exito(req, res, data, 200)
         })
@@ -36,7 +36,7 @@ ruta.patch('/', function(req, res) {
 })
 
 ruta.delete('/', function(req, res) {
-    controlador.eliminarFactura(req.body.abreviatura)
+    controlador.eliminarFactura(req.body.codigo)
         .then((data) => {
             respuesta.exito(req, res, data, 200)
         })

@@ -13,21 +13,17 @@ function obtenerFacturas( filtroFactura ) {
     })
 }
 
-function actualizarFactura( nombre, abreviatura ) {
+function actualizarFactura( factura ) {
     return new Promise((resolve, reject) => {
-        let carrera = {
-            nombre: nombre,
-            abreviatura: abreviatura
-        }
-        storage.actualizar( carrera )
-        resolve( carrera )
+        storage.actualizar( factura )
+        resolve( factura )
     })
 }
 
-function eliminarFactura( abreviatura ) {
+function eliminarFactura( codigo ) {
     return new Promise((resolve, reject) => {
-        storage.eliminar( abreviatura )
-        resolve( abreviatura )
+        storage.eliminar( codigo )
+        resolve( codigo )
     })
 }
 

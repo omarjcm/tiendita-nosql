@@ -16,6 +16,17 @@ const reqNumber = {
     required: true,
 }
 
+const facturaDetalleSchema = new Schema({
+    ref_producto: {
+        type: Schema.ObjectId,
+        ref: 'Producto',
+    },
+    cantidad: reqNumber,
+    cantidad_x_valor: reqNumber,
+}, {
+    timestamps: true,
+})
+
 const facturaSchema = new Schema({
     codigo: reqString,
     ref_empleado: {
@@ -27,19 +38,7 @@ const facturaSchema = new Schema({
         ref: 'Cliente',
     },
     valor_total: reqNumber,
-    fecha_emision: reqDate,
-}, {
-    timestamps: true,
-})
-
-const facturaDetalleSchema = new Schema({
-    ref_factura: facturaSchema,
-    ref_producto: {
-        type: Schema.ObjectId,
-        ref: 'Producto',
-    },
-    cantidad: reqNumber,
-    cantidad_x_valor: reqNumber,
+    ref_factura_detalle: [facturaDetalleSchema]
 }, {
     timestamps: true,
 })
